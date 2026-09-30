@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explainable Autonomous Driving</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>🚗 Explainable Autonomous Driving</h1>
+    <p>AI decision visualization dashboard</p>
+  </header>
+
+  <main class="dashboard">
+
+    <section class="road-section">
+      <h2>Driving Environment</h2>
+
+      <div class="road">
+        <div class="lane left-lane"></div>
+        <div class="lane right-lane"></div>
+
+        <div class="object pedestrian">🚶</div>
+        <div class="object car-object">🚙</div>
+
+        <div id="egoCar">🚗</div>
+      </div>
+
+      <div class="controls">
+        <button onclick="makeDecision('pedestrian')">
+          Pedestrian Detected
+        </button>
+
+        <button onclick="makeDecision('clear')">
+          Road Clear
+        </button>
+
+        <button onclick="makeDecision('vehicle')">
+          Vehicle Ahead
+        </button>
+      </div>
+    </section>
+
+    <section class="explanation">
+      <h2>AI Decision</h2>
+
+      <div class="decision-box">
+        <h3 id="decision">Proceed</h3>
+        <p id="reason">
+          The road is currently clear.
+        </p>
+      </div>
+
+      <h3>Detected Objects</h3>
+      <ul id="objects">
+        <li>Road — Clear</li>
+      </ul>
+
+      <h3>Confidence</h3>
+      <div class="confidence">
+        <div id="confidenceBar"></div>
+      </div>
+      <p id="confidenceText">95%</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
